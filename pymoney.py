@@ -2,7 +2,7 @@ money = int(input('How much money do you have? '))
 
 flag = True
 entries = []
-tmp = []
+tmp = [] # record the index of the entry to be deleted
 
 while flag:
     action = input('What do you want to do (add / view / delete / exit)? ')
