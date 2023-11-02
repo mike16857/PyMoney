@@ -1,9 +1,27 @@
-money = int(input('How much money do you have? '))
-
-flag = True
 entries = []
 tmp = [] # record the index of the entry to be deleted
 
+
+try:
+    fh = open('records.txt', 'r')
+    print('Welcome Back!')
+    money = int(fh.readline())
+
+    st = ''
+    tmp2 = fh.readlines()
+    for tp in tmp2:
+        st += tp
+    # print(st)
+    entries = [eval(s) for s in st.split('\n')]
+    # print(entries)
+    fh.close()
+except FileNotFoundError:
+    # fh = open('records.txt', 'w')
+    money = int(input('How much money do you have? '))
+    # fh.close()
+
+
+flag = True
 while flag:
     action = input('What do you want to do (add / view / delete / exit)? ')
 
@@ -17,6 +35,7 @@ while flag:
         # print(money)
 
     elif action == 'view':
+        # print(entries)
         print('Here are your expense and income records:')
         print('Index    Description     Amount')
         print('=====    ==============  ======')
@@ -59,8 +78,16 @@ while flag:
             
 
     elif action == 'exit':
+        with open('records.txt', 'w') as fh:
+            fh.write(f'{money}\n')
+            # for ent in entries:
+                # fh.write(str(ent))
+                # fh.write('\n')
+            fh.writelines('\n'.join([str(s) for s in entries]))
+        
         flag = False
         break
 
     else:
         print('Invalid input, please try again.')
+
