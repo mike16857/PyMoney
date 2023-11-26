@@ -1,4 +1,4 @@
-1905
+1050
 ('meal', 'breakfast', '-50')
 ('drink', 'coffee', '-100')
 ('food', 'bread', '-80')
@@ -6,7 +6,6 @@
 ('meal', 'lunch', '-120')
 ('railway', 'MRT', '-45')
 ('food', 'cookie', '-30')
-('meal', 'breakfast', '-50')
 ('food', 'bread', '-60')
 ('drink', 'milk', '-25')
 ('transportation', 'taxi', '-170')
