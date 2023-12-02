@@ -63,6 +63,8 @@ def add(init_money, rcd, categories):
         entry_to_add = input('Add an expense or income record with category, description and amount:\nctg1 desc1 amt1, ctg2 desc2 amt2, ...\n').split(',')
         for i in entry_to_add:
             member = tuple(i.split())
+            if len(member) != 3:
+                raise IndexError
             if is_category_valid(member[0], categories):
                 rcd.append(member)
                 init_money += int(member[2])
